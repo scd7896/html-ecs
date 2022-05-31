@@ -21,6 +21,14 @@ abstract class Vector extends Component {
   get y() {
     return this._y
   }
+
+  set x(nextX: number) {
+    this._x = nextX
+  }
+
+  set y(nextY: number) {
+    this._y = nextY
+  }
 }
 
 export default Vector

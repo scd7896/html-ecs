@@ -13,6 +13,13 @@ class Move2d extends Vector {
     super(option.defaultPosition.x, option.defaultPosition.y);
     this.speed = option.speed;
     this.entity = entity;
+    this.move();
+  }
+
+  move() {
+    this.entity.setStyle({
+      "transform": `translate(${this.x}px, ${this.y}px)`
+    })
   }
 
   setSpeed(speed: number) {
@@ -20,11 +27,11 @@ class Move2d extends Vector {
   }
 
   update(delta: number): void {
-    
-    this.entity.setStyle({
-      "transform": `translate(${this.x}px, ${this.y}px)`
-    })
-    
+    if (delta) {
+      this.x += this.speed / delta
+      this.y += this.speed / delta
+      this.move();
+    }
   }
 }
 
